@@ -1,5 +1,3 @@
-def print_numbers():
-    for num in range(99):
-        print(f"{num} - {hex(num)}")
-print_numbers()
-
+#!/usr/bin/python3
+for num in range(99):
+    print(f"{num} {hex(num)}")
