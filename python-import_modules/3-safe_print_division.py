@@ -1,18 +1,53 @@
-def safe_print_division(a, b):
-    try:
-        result = a / b
-    except ZeroDivisionError:
-        print("Error: Division by zero is not allowed.")
-        return None
-    except Exception as e:
-        print("Error:", e)
-        return None
-    finally:
-        print("Inside result: {}".format(result) if 'result' in locals() else "Inside result: None")
-        return result
+#!/usr/bin/python3
+def add(a, b):
+    """My addition function
 
-# Test the function with some examples
-safe_print_division(10, 2)
-safe_print_division(5, 0)
-safe_print_division(8, 3)
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The return value. a + b
+    """
+    return (a + b)
+
+
+def sub(a, b):
+    """My subtraction function
+
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The return value. a - b
+    """
+    return (a - b)
+
+
+def mul(a, b):
+    """My multiplication function
+
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The return value. a * b
+    """
+    return (a * b)
+
+
+def div(a, b):
+    """My division function
+
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The return value. a / b
+    """
+    return int(a / b)
+
 
