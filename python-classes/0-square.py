@@ -4,6 +4,5 @@ class Square:
 
 # Example usage:
 square = Square(5)
-# This will raise an AttributeError because __size is private
-print(square.__size)
+print(square.__size)  # This will raise an AttributeError, as __size is private
 
