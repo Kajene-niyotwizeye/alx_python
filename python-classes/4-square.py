@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 class Square:
-    """Class square"""
+    """Class Square"""
 
     def __init__(self, size=0):
-        """Method to init"""
+        """method to initiate"""
         self.size = size
 
     @property
     def size(self):
-        """retreive size"""
+        """Getter method to retrieve"""
         return (self.__size)
 
     @size.setter
     def size(self, value):
+        """Setter method to initalize value"""
         if type(value) != int:
             raise TypeError('size must be an integer')
         if value < 0:
@@ -20,15 +21,5 @@ class Square:
         self.__size = value
 
     def area(self):
-        """return square area"""
+        """class method to return current square area"""
         return (self.__size**2)
-
-    def my_print(self):
-        """print to stdout square with char #"""
-        if self.__size is 0:
-            print()
-
-        for row in range(self.__size):
-            for col in range(self.__size):
-                print('{}'.format('#'), end="")
-            print()
