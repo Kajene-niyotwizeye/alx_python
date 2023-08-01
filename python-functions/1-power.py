@@ -1,22 +1,33 @@
-def pow(a, b):
-    # Handle special cases
+def actual_power(a: int, b: int):
+    """
+    Function using divide and conquer to calculate a^b.
+    It only works for integer a,b.
+    """
     if b == 0:
         return 1
+    if (b % 2) == 0:
+        return actual_power(a, int(b / 2)) * actual_power(a, int(b / 2))
+    else:
+        return a * actual_power(a, int(b / 2)) * actual_power(a, int(b / 2))
+
+
+def power(a: int, b: int) -> float:
+    """
+    >>> power(4,6)
+    4096
+    >>> power(2,3)
+    8
+    >>> power(-2,3)
+    -8
+    >>> power(2,-3)
+    0.125
+    >>> power(-2,-3)
+    -0.125
+    """
     if b < 0:
-        a = 1 / a
-        b = -b
+        return 1 / actual_power(a, b)
+    return actual_power(a, b)
 
-    result = 1
-    while b > 0:
-        if b % 2 == 1:
-            result *= a
-        a *= a
-        b //= 2
 
-    return result
-
-# Test the function
-print(pow(2, 3))  # Output: 8
-print(pow(5, 0))  # Output: 1
-print(pow(3, -2))  # Output: 0.1111111111111111
-
+if __name__ == "__main__":
+    print(power(-2, -3))
