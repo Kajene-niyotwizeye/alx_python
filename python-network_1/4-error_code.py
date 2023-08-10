@@ -1,23 +1,20 @@
-#!/usr/bin/python3
-"""
-Sends a request to the URL and displays the body of the response.
-"""
+import sys
 import requests
-from sys import argv
 
+def main():
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <URL> <email>")
+        return
 
-def main(argv):
-    """
-    Method that manage urllib.error.HTTPError exceptions and
-    print: Error code: followed by the HTTP status code
-    """
-    url = argv[1]
-    r = requests.get(url)
-    if r.status_code == requests.codes.ok:
-        print(r.text)
-    else:
-        print("Error code: {}".format(r.status_code))
+    url = sys.argv[1]
+    email = sys.argv[2]
 
+    payload = {'email': email}
+    response = requests.post(url, data=payload)
+
+    print("Response body:")
+    print(response.text)
 
 if __name__ == "__main__":
-    main(argv)
+    main()
+

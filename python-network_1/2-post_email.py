@@ -1,24 +1,24 @@
-#!/usr/bin/python3
-"""
-POST request to the passed URL with the email as a parameter
-"""
-import urllib.request
-from sys import argv
+import requests
+import sys
 
+def main():
+    if len(sys.argv) != 3:
+        print("Usage: python script_name.py <URL> <email>")
+        return
 
-def main(argv):
-    """
-    Sends a POST request to the passed URL with the email as a parameter,
-    and displays the body of the response (decoded in utf-8)
-    """
-    values = {'email': argv[2]}
-    data = urllib.parse.urlencode(values)
-    data = data.encode('utf8')
-    url = argv[1]
-    req = urllib.request.Request(url, data)
-    with urllib.request.urlopen(req) as response:
-        result = response.read()
-        print(result.decode('utf8'))
+    url = sys.argv[1]
+    email = sys.argv[2]
+
+    payload = {"email": email}
+
+    response = requests.post(url, data=payload)
+
+    if response.status_code == 200:
+        print("Response body:")
+        print(response.text)
+    else:
+        print(f"Request failed with status code: {response.status_code}")
 
 if __name__ == "__main__":
-    main(argv)
+    main()
+
