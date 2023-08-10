@@ -1,18 +1,7 @@
-#!/usr/bin/python3
-"""Rectangle module.
+class BaseGeometry:
+    def integer_validator(self, name, value):
+        if not isinstance(value, int):
+            raise ValueError(f"{name} must be an integer")
+        if value <= 0:
+            raise ValueError(f"{name} must be greater than 0")
 
-Contains a class Rectangle that inherits from
-BaseGeometry and some methods.
-"""
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
-
-class Rectangle(BaseGeometry):
-    """Defines the Rectangle class that inherits from BaseGeometry."""
-
-    def __init__(self, width, height):
-        """Checks and sets the default attributes of Rectangle class."""
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
-        self.__width = width
-        self.__height = height
